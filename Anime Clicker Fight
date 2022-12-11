@@ -1,0 +1,761 @@
+
+
+local SolarisLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/sol"))()
+
+local win = SolarisLib:New({
+    Name = "Dreps Hub | Anime Clicker Fight",
+    FolderToSave = "Dreps Hub"
+  })
+
+-- main tab start
+
+
+  
+
+local maintab = win:Tab("Farm")
+
+local mainsec = maintab:Section("Auto")
+
+local afsec = maintab:Section("Auto Stages")
+
+local lptab = win:Tab("Local Player")
+
+local tpsec = lptab:Section("Teleport")
+
+local summonsec = lptab:Section("Summons")
+
+local modifiersec = lptab:Section("Player")
+
+local cointab = win:Tab("Coin Farms")
+
+local coinsec = cointab:Section("Auto Coin Farms")
+
+local clicktoggle = mainsec:Toggle("Auto Click", false,"Toggle", function(state)
+
+    if state then
+        getgenv().autoClick = true
+        spawn(function()
+        while autoClick do task.wait()
+game:GetService("ReplicatedStorage").System.SystemClick.Click:FireServer()
+        end
+    end)
+    else
+       getgenv().autoClick = false
+    end
+end)
+
+local spintoggle = mainsec:Toggle("Auto Daily Spin", false,"Toggle", function(state)
+
+    if state then
+       getgenv().autoSpin = true
+       spawn (function() 
+        while autoSpin do task.wait()
+            game:GetService("ReplicatedStorage").System.SystemDailyLottery.Spin:InvokeServer()
+        end
+
+    end)
+    else
+        getgenv().autoSpin = false
+    end
+end)
+
+local endlabel = afsec:Label("if you turn off, script will complete stage and then it will stop")
+local fighterlabel = afsec:Label("Better fighters = faster completion")
+
+local auntoggle = afsec:Toggle("Auto Naruto Stage", false,"Toggle", function(state)
+
+    if state then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-24, 3, -339)
+        wait(0.1)
+       getgenv().aunaruto = true
+       spawn(function()
+        while aunaruto do task.wait(0.8)
+            
+            wait(0.3)
+            local teleport_table = {
+                location1 = Vector3.new(9523, 3, -336), -- your desired position
+                
+            }
+            
+            local tween_s = game:GetService('TweenService')
+            local tweeninfo = TweenInfo.new(14,Enum.EasingStyle.Linear)
+            
+            local lp = game.Players.LocalPlayer
+            
+            function bypass_teleport(v)
+                if lp.Character and 
+                lp.Character:FindFirstChild('HumanoidRootPart') then
+                    local cf = CFrame.new(v)
+                    local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                    a:Play()
+                    
+
+                    
+                end
+            end
+            
+            bypass_teleport(teleport_table.location1)
+        a.Completed:Wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-24, 3, -339)
+end
+        end)
+    
+    else
+        
+        getgenv().aunaruto = false
+
+    end
+end)
+
+local auntoggle = afsec:Toggle("Auto Demon Slayer Stage", false,"Toggle", function(state)
+
+    if state then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-90, 3, 9)
+        wait(0.1)
+       getgenv().auds = true
+       spawn(function()
+        while auds do task.wait(0.8)
+            
+            wait(0.3)
+            local teleport_table = {
+                location1 = Vector3.new(9512, 3, 7), -- your desired position
+                
+            }
+            
+            local tween_s = game:GetService('TweenService')
+            local tweeninfo = TweenInfo.new(14,Enum.EasingStyle.Linear)
+            
+            local lp = game.Players.LocalPlayer
+            
+            function bypass_teleport(v)
+                if lp.Character and 
+                lp.Character:FindFirstChild('HumanoidRootPart') then
+                    local cf = CFrame.new(v)
+                    local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                    a:Play()
+                    a.Completed:Wait(1)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-90, 3, 9)
+
+                    
+                end
+            end
+            
+            bypass_teleport(teleport_table.location1)
+        end
+    end)
+    else
+        getgenv().auds = false
+    end
+end)
+
+local auoptoggle = afsec:Toggle("Auto One Piece Stage", false,"Toggle", function(state)
+
+    if state then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63, 3, 348)
+       wait(0.1)
+       getgenv().auop = true
+       spawn(function()
+        while auop do task.wait(0.8)
+            local teleport_table = {
+                location1 = Vector3.new(9518, 3, 344), -- your desired position
+                
+            }
+            
+            local tween_s = game:GetService('TweenService')
+            local tweeninfo = TweenInfo.new(14,Enum.EasingStyle.Linear)
+            
+            local lp = game.Players.LocalPlayer
+            
+            function bypass_teleport(v)
+                if lp.Character and 
+                lp.Character:FindFirstChild('HumanoidRootPart') then
+                    local cf = CFrame.new(v)
+                    local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                    a:Play()
+                    a.Completed:Wait(1)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-90, 3, 9)
+                    
+                    
+                end
+            end
+            
+            bypass_teleport(teleport_table.location1)
+        end
+        end)
+    else
+        getgenv().auop = false
+    end
+end)
+
+local aubztoggle = afsec:Toggle("Auto DBZ Stage", false,"Toggle", function(state)
+
+    if state then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-66, 4, 675)
+        wait(0.1)
+        getgenv().aubz = true
+        spawn(function()
+            while aubz do task.wait(0.8)
+                local teleport_table = {
+                    location1 = Vector3.new(9519, 3, 673), -- your desired position
+                    
+                }
+                
+                local tween_s = game:GetService('TweenService')
+                local tweeninfo = TweenInfo.new(14,Enum.EasingStyle.Linear)
+                
+                local lp = game.Players.LocalPlayer
+                
+                function bypass_teleport(v)
+                    if lp.Character and 
+                    lp.Character:FindFirstChild('HumanoidRootPart') then
+                        local cf = CFrame.new(v)
+                        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                        a:Play()
+                        a.Completed:Wait(1)
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-66, 4, 675)
+                        
+                        
+                    end
+                end
+                
+                bypass_teleport(teleport_table.location1)
+            end
+
+        end)
+    else
+        getgenv().aubz = false
+    end
+end)
+
+local auottoggle = afsec:Toggle("Auto AOT Stage", false,"Toggle", function(state)
+
+    if state then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-29, 4, 1010)
+        wait(0.1)
+        getgenv().auot = true
+        spawn(function()
+            while auot do task.wait(0.8)
+        local teleport_table = {
+            location1 = Vector3.new(9535, 3, 1010), -- your desired position
+            
+        }
+        
+        local tween_s = game:GetService('TweenService')
+        local tweeninfo = TweenInfo.new(20,Enum.EasingStyle.Linear)
+        
+        local lp = game.Players.LocalPlayer
+        
+        function bypass_teleport(v)
+            if lp.Character and 
+            lp.Character:FindFirstChild('HumanoidRootPart') then
+                local cf = CFrame.new(v)
+                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                a:Play()
+                a.Completed:Wait(1)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-29, 4, 1010)
+                
+                
+            end
+        end
+        
+        bypass_teleport(teleport_table.location1)
+            end
+    end)
+    else
+       getgenv().auot = false
+    end
+end)
+
+--main tab end
+
+-- tabs and sections
+
+
+
+
+
+
+
+
+-- summon toggle start
+
+
+
+local nnarutotoggle = summonsec:Toggle("Auto Summon Naruto (Normal)", false,"Toggle", function(state)
+ 
+    if state then
+        SolarisLib:Notification("read me", "Summoning animation won't show up, fighters will be in your inventory though.")
+        wait(0.1)
+       getgenv().nNarutoSum = true
+       spawn(function()
+        while nNarutoSum do task.wait()
+            local args = {
+                [1] = 1,
+                [2] = 1
+            }
+            
+            game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(unpack(args))
+        end
+    end)
+    else
+        getgenv().nNarutoSum = false
+    end
+end)
+
+local anarutotoggle = summonsec:Toggle("Auto Summon Naruto (Advanced)", false,"Toggle", function(state)
+
+    if state then
+       getgenv().aNarutoSum = true
+       spawn(function()
+        while aNarutoSum do task.wait()
+            local args = {
+                [1] = 2,
+                [2] = 1
+            }
+            
+            game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(unpack(args))
+        end
+
+    end)
+    else
+        getgenv().aNarutoSum = false
+    end
+end)
+
+local ndstoggle = summonsec:Toggle("Auto Summon Demon Slayer (Normal)", false,"Toggle", function(state)
+
+    if state then
+       getgenv().nds = true
+       spawn(function()
+        while nds do task.wait()
+            local args = {
+                [1] = 3,
+                [2] = 1
+            }
+            
+            game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(unpack(args))
+        end
+
+    end)
+    else
+        getgenv().nds = false
+    end
+end)
+
+local adstoggle = summonsec:Toggle("Auto Summon Demon Slayer (Advanced)", false,"Toggle", function(state)
+
+    if state then
+       getgenv().ads = true
+       spawn(function()
+        while ads do task.wait()
+            local args = {
+                [1] = 4,
+                [2] = 1
+            }
+            
+            game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(unpack(args))
+        end
+    end)
+    else
+        getgenv().ads = false
+    end
+end)
+
+local noptoggle = summonsec:Toggle("Auto Summon One Piece (Normal)", false,"Toggle", function(state)
+
+    if state then
+       getgenv().nop = true
+       spawn(function()
+        while nop do task.wait()
+            local args = {
+            [1] = 5,
+            [2] = 1
+        }
+        
+        game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(unpack(args))
+    end
+end)
+    else
+        getgenv().nop = false
+    end
+end)
+
+local aoptoggle = summonsec:Toggle("Auto Summon One Piece (Advanced)", false,"Toggle", function(state)
+
+    if state then
+       getgenv().aop = true
+       spawn(function()
+        while aop do task.wait()
+            local args = {
+            [1] = 6,
+            [2] = 1
+        }
+        
+        game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(unpack(args))
+    end
+end)
+    else
+        getgenv().aop = false
+    end
+end)
+
+local ndbztoggle = summonsec:Toggle("Auto Summon DBZ (Normal)", false,"Toggle", function(state)
+
+    if state then
+       getgenv().ndbz = true
+       spawn(function()
+    while ndbz do task.wait()
+        local args = {
+            [1] = 7,
+            [2] = 1
+        }
+        
+    
+        game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(unpack(args))
+    end
+end)
+    else
+       getgenv().ndbz = false
+    end
+end)
+
+local abztoggle = summonsec:Toggle("Auto Summon DBZ (Advanced)", false,"Toggle", function(state)
+
+    if state then
+       getgenv().abz = true
+       spawn(function()
+    while abz do task.wait()
+        local args = {
+            [1] = 8,
+            [2] = 1
+        }
+        
+    
+        game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(unpack(args))
+    end
+end)
+    else
+       getgenv().abz = false
+    end
+end)
+
+local naottoggle = summonsec:Toggle("Auto Summon AOT (Normal)", false,"Toggle", function(state)
+
+    if state then
+      getgenv().naot = true
+       spawn(function()
+        while naot do task.wait()
+            local args = {
+                [1] = 9,
+                [2] = 1
+            }
+            
+        
+            game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(unpack(args))
+        end
+
+    end)
+    else
+        getgenv().naot = false
+    end
+end)
+
+local aottogle = summonsec:Toggle("Auto Summon AOT (Advanced)", false,"Toggle", function(state)
+
+    if state then
+       getgenv().naot = true
+       spawn(function()
+        while naot do task.wait()
+            local args = {
+                [1] = 10,
+                [2] = 1
+            }
+            
+        
+            game:GetService("ReplicatedStorage").Tool.DrawUp.Msg.DrawHero:InvokeServer(unpack(args))
+        end
+
+    end)
+    else
+        getgenv().naot = false
+    end
+end)
+
+--summon toggles end
+local wslabel = modifiersec:Label("Default player walkspeed is 16")
+  
+local wsslider = modifiersec:Slider("WalkSpeed", 16,500,16,16,"Slider", function(w)
+  getgenv().ws = true
+  spawn(function()
+    while ws do task.wait()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (w)
+    end
+end)
+  end)
+
+
+  local dashtoggle = modifiersec:Toggle("Auto Dash", false,"Toggle", function(state)
+
+    if state then
+        local args = {
+            [1] = {
+                ["Goal"] = Vector3.new(-35.38409423828125, 17.159440994262695, 974.6827392578125),
+                ["PlayerId"] = 3343365047
+            },
+            [2] = "BloxFruitDash"
+        }
+        
+        game:GetService("ReplicatedStorage").ServerMsg.ReleaseSkill:FireServer(unpack(args))
+        wait(0.1)
+       getgenv().dash = true
+       spawn(function()
+        while dash do task.wait(2)
+            -- Script generated by SimpleSpy - credits to exx#9394
+
+local args = {
+    [1] = {
+        ["Goal"] = Vector3.new(-35.38409423828125, 17.159440994262695, 974.6827392578125),
+        ["PlayerId"] = 3343365047
+    },
+    [2] = "BloxFruitDash"
+}
+
+game:GetService("ReplicatedStorage").ServerMsg.ReleaseSkill:FireServer(unpack(args))
+end
+end)
+    else
+        getgenv().dash = false
+    end
+end)
+
+local besttoggle = modifiersec:Toggle("Auto Equip Best Fighter", false,"Toggle", function(state)
+
+    if state then
+        game:GetService("ReplicatedStorage").ServerMsg.WearBestPet:InvokeServer()
+        wait(0.1)
+       getgenv().bestfighter = true
+       spawn(function()
+        while bestfighter do task.wait(0.5)
+game:GetService("ReplicatedStorage").ServerMsg.WearBestPet:InvokeServer()
+end
+end)
+    else
+        getgenv().bestfighter = false
+    end
+end)
+
+local clicklabel = coinsec:Label("Recommend enable with auto click")
+
+local cnarutotoggle = coinsec:Toggle("Auto Naruto Coin Farm", false,"Toggle", function(state)
+
+    if state then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-23, 3, -338)
+        wait(0.1)
+        getgenv().cnaruto = true
+        spawn(function()
+            while cnaruto do task.wait()
+                local teleport_table = {
+                location1 = Vector3.new(454, 3, -334), -- your desired position
+                
+            }
+            
+            local tween_s = game:GetService('TweenService')
+            local tweeninfo = TweenInfo.new(0.8,Enum.EasingStyle.Linear)
+            
+            local lp = game.Players.LocalPlayer
+            
+            function bypass_teleport(v)
+                if lp.Character and 
+                lp.Character:FindFirstChild('HumanoidRootPart') then
+                    local cf = CFrame.new(v)
+                    local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                    a:Play()
+                    
+
+                    
+                end
+            end
+            
+            bypass_teleport(teleport_table.location1)
+        wait(0.8)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-23, 3, -338)
+        end
+    end)
+    else
+        getgenv().cnaruto = false
+    end
+end)
+
+local cdstoggle = coinsec:Toggle("Auto Demon Slayer Coin Farm", false,"Toggle", function(state)
+
+    if state then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-28, 3, 5)
+        wait(0.1)
+        getgenv().cds = true
+        spawn(function()
+            while cds do task.wait()
+            local teleport_table = {
+                location1 = Vector3.new(480, 3, 6), -- your desired position
+                
+            }
+            
+            local tween_s = game:GetService('TweenService')
+            local tweeninfo = TweenInfo.new(0.8,Enum.EasingStyle.Linear)
+            
+            local lp = game.Players.LocalPlayer
+            
+            function bypass_teleport(v)
+                if lp.Character and 
+                lp.Character:FindFirstChild('HumanoidRootPart') then
+                    local cf = CFrame.new(v)
+                    local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                    a:Play()
+                    
+
+                    
+                end
+            end
+            
+            bypass_teleport(teleport_table.location1)
+        wait(0.8)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-28, 3, 5)
+        end
+    end)
+    else
+        getgenv().cds = false
+    end
+end)
+
+local coptoggle = coinsec:Toggle("Auto One Piece Coin Farm", false,"Toggle", function(state)
+
+    if state then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-19, 3, 345)
+        wait(0.1)
+        getgenv().cop = true
+        spawn(function()
+            while cop do task.wait()
+                local teleport_table = {
+                    location1 = Vector3.new(491, 3, 346), -- your desired position
+                    
+                }
+                
+                local tween_s = game:GetService('TweenService')
+                local tweeninfo = TweenInfo.new(0.8,Enum.EasingStyle.Linear)
+                
+                local lp = game.Players.LocalPlayer
+                
+                function bypass_teleport(v)
+                    if lp.Character and 
+                    lp.Character:FindFirstChild('HumanoidRootPart') then
+                        local cf = CFrame.new(v)
+                        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                        a:Play()
+                        
+    
+                        
+                    end
+                end
+                
+                bypass_teleport(teleport_table.location1)
+            wait(0.8)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-19, 3, 345)
+            end
+        end)
+        else
+            getgenv().cop = false
+        end
+    end)
+
+    local cbztoggle = coinsec:Toggle("Auto DBZ Coin Farm", false,"Toggle", function(state)
+
+        if state then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16, 4, 674)
+            wait(0.1)
+            getgenv().cbz = true
+            spawn(function()
+                while cbz do task.wait()
+                    local teleport_table = {
+                        location1 = Vector3.new(488, 3, 674), -- your desired position
+                        
+                    }
+                    
+                    local tween_s = game:GetService('TweenService')
+                    local tweeninfo = TweenInfo.new(0.8,Enum.EasingStyle.Linear)
+                    
+                    local lp = game.Players.LocalPlayer
+                    
+                    function bypass_teleport(v)
+                        if lp.Character and 
+                        lp.Character:FindFirstChild('HumanoidRootPart') then
+                            local cf = CFrame.new(v)
+                            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                            a:Play()
+                            
+        
+                            
+                        end
+                    end
+                    
+                    bypass_teleport(teleport_table.location1)
+                wait(0.8)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-19, 4, 674)
+                end
+            end)
+        else
+            getgenv().cbz = false
+        end
+    end)
+
+    local cottoggle = coinsec:Toggle("Auto AOT Coin Farm", false,"Toggle", function(state)
+
+        if state then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-17, 4, 1010)
+            wait(0.1)
+            getgenv().cot = true
+            spawn(function()
+                while cot do task.wait()
+                    local teleport_table = {
+                        location1 = Vector3.new(474, 3, 1009), -- your desired position
+                        
+                    }
+                    
+                    local tween_s = game:GetService('TweenService')
+                    local tweeninfo = TweenInfo.new(0.8,Enum.EasingStyle.Linear)
+                    
+                    local lp = game.Players.LocalPlayer
+                    
+                    function bypass_teleport(v)
+                        if lp.Character and 
+                        lp.Character:FindFirstChild('HumanoidRootPart') then
+                            local cf = CFrame.new(v)
+                            local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                            a:Play()
+                            
+        
+                            
+                        end
+                    end
+                    
+                    bypass_teleport(teleport_table.location1)
+                wait(0.8)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-17, 4, 1010)
+                end
+            end)
+        else
+            getgenv().cot = false
+        end
+    end)
+
+local tpdropdown = tpsec:Dropdown("Teleports", {"Naruto","Demon Slayer","One Piece","Dragon Ball Z","Attack On Titan"},{"b", "c"},"Dropdown", function(Location)
+    if Location == "Naruto" then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-95, 3, -326)
+    elseif Location == "Demon Slayer" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-90, 3, 9)
+    elseif Location == "One Piece" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63, 3, 348)
+    elseif Location == "Dragon Ball Z" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-66, 4, 675)
+    elseif Location == "Attack On Titan" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-91, 4, 1011)
+  end
+ end) 
